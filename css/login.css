@@ -1,0 +1,603 @@
+/* ============================================
+   DEVTUNNEL - LOGIN/REGISTER PAGE
+   Dark Theme + Emerald Accent + Glassmorphism
+   Professional & Modern Design
+============================================ */
+
+/* 1. CSS VARIABLES (Same as Dashboard) */
+:root {
+    /* Colors */
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+    --bg-card-hover: #334155;
+    --bg-input: #0f172a;
+    --accent: #10b981;
+    --accent-light: #34d399;
+    --accent-glow: rgba(16, 185, 129, 0.4);
+    --accent-glow-strong: rgba(16, 185, 129, 0.6);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border: #334155;
+    --border-light: #475569;
+    --success: #22c55e;
+    --error: #ef4444;
+    --error-glow: rgba(239, 68, 68, 0.3);
+    
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 30px var(--accent-glow);
+    --shadow-glow-strong: 0 0 50px var(--accent-glow-strong);
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* 2. RESET & BASE */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* 3. ANIMATED BACKGROUND */
+.container {
+    padding: var(--space-lg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    background: 
+        radial-gradient(ellipse at top left, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+        var(--bg-dark);
+}
+
+/* Floating Orbs Background */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.container::before {
+    width: 400px;
+    height: 400px;
+    background: var(--accent-glow);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.container::after {
+    width: 300px;
+    height: 300px;
+    background: rgba(16, 185, 129, 0.2);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+/* 4. FORM CONTAINER (Glassmorphism) */
+.container form {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-xl), var(--shadow-glow);
+    width: 100%;
+    max-width: 420px;
+    min-width: 320px;
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    position: relative;
+    z-index: 10;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Accent Line on Top */
+.container form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    border-radius: var(--radius-full);
+}
+
+/* 5. LOGO */
+.container form img {
+    width: 100px;
+    height: auto;
+    margin-bottom: var(--space-sm);
+    filter: drop-shadow(0 0 20px var(--accent-glow));
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { filter: drop-shadow(0 0 20px var(--accent-glow)); }
+    50% { filter: drop-shadow(0 0 40px var(--accent-glow-strong)); }
+}
+
+/* 6. TITLE / TEXT */
+.container form h2,
+.container form .form-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: var(--space-xs);
+}
+
+.container form p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin: var(--space-xs) 0;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.container form p span {
+    color: var(--accent);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.container form p span:hover {
+    color: var(--accent-light);
+    text-decoration: underline;
+}
+
+/* 7. INPUT GROUPS */
+.container form div,
+.container form .input-group {
+    width: 100%;
+    margin: var(--space-sm) 0;
+}
+
+.container form label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* 8. INPUT FIELDS */
+.container form input {
+    width: 100%;
+    height: 48px;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border);
+    background-color: var(--bg-input);
+    padding: var(--space-sm) var(--space-md);
+    outline: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 400;
+    transition: var(--transition-normal);
+}
+
+.container form input:hover {
+    border-color: var(--border-light);
+}
+
+.container form input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow), var(--shadow-sm);
+    background-color: rgba(16, 185, 129, 0.05);
+}
+
+.container form input::placeholder {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* Input with Icon (Optional Enhancement) */
+.container form .input-with-icon {
+    position: relative;
+}
+
+.container form .input-with-icon input {
+    padding-left: var(--space-xl);
+}
+
+.container form .input-with-icon svg {
+    position: absolute;
+    left: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: var(--transition-normal);
+}
+
+.container form .input-with-icon input:focus + svg,
+.container form .input-with-icon:focus-within svg {
+    color: var(--accent);
+}
+
+/* 9. ERROR STATE */
+.container form input.error {
+    border-color: var(--error);
+    box-shadow: 0 0 0 3px var(--error-glow);
+}
+
+.container form .error-message {
+    color: var(--error);
+    font-size: 0.8rem;
+    margin-top: var(--space-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+/* 10. SUBMIT BUTTON */
+.container form button {
+    width: 100%;
+    margin-top: var(--space-md);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--bg-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-md), 0 4px 20px var(--accent-glow);
+    position: relative;
+    overflow: hidden;
+}
+
+.container form button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: var(--transition-slow);
+}
+
+.container form button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg), var(--shadow-glow-strong);
+}
+
+.container form button:hover::before {
+    left: 100%;
+}
+
+.container form button:active {
+    transform: translateY(0);
+}
+
+.container form button:disabled {
+    background: var(--bg-card-hover);
+    color: var(--text-muted);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Secondary Button Style (For "Sign Up Instead" etc.) */
+.container form button.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--border);
+    color: var(--text-secondary);
+    box-shadow: none;
+}
+
+.container form button.btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* 11. DIVIDER */
+.container form .divider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: var(--space-md) 0;
+    gap: var(--space-md);
+}
+
+.container form .divider::before,
+.container form .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.container form .divider span {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* 12. SOCIAL LOGIN BUTTONS (Optional) */
+.container form .social-login {
+    display: flex;
+    gap: var(--space-md);
+    width: 100%;
+}
+
+.container form .social-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--bg-card-hover);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.container form .social-btn:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.container form .social-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* 13. FOOTER LINKS */
+.container form .form-footer {
+    margin-top: var(--space-md);
+    text-align: center;
+}
+
+.container form .form-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-normal);
+}
+
+.container form .form-footer a:hover {
+    color: var(--accent-light);
+    text-decoration: underline;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+============================================ */
+
+/* Tablets (768px) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: var(--space-md);
+    }
+    
+    .container::before {
+        width: 300px;
+        height: 300px;
+        top: -50px;
+        left: -50px;
+    }
+    
+    .container::after {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .container form {
+        max-width: 400px;
+        padding: var(--space-lg);
+    }
+    
+    .container form img {
+        width: 80px;
+    }
+    
+    .container form h2,
+    .container form .form-title {
+        font-size: 1.5rem;
+    }
+    
+    .container form p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile (480px) */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: var(--space-sm);
+        align-items: flex-start;
+        padding-top: var(--space-xl);
+    }
+    
+    .container::before,
+    .container::after {
+        display: none; /* Hide orbs on mobile for performance */
+    }
+    
+    .container form {
+        min-width: 100%;
+        max-width: 100%;
+        padding: var(--space-lg) var(--space-md);
+        border-radius: var(--radius-lg);
+        margin: 0;
+    }
+    
+    .container form img {
+        width: 70px;
+    }
+    
+    .container form h2,
+    .container form .form-title {
+        font-size: 1.25rem;
+    }
+    
+    .container form p {
+        font-size: 0.85rem;
+    }
+    
+    .container form label {
+        font-size: 0.8rem;
+    }
+    
+    .container form input {
+        height: 44px;
+        font-size: 0.95rem;
+        padding: var(--space-sm) var(--space-md);
+    }
+    
+    .container form button {
+        padding: var(--space-md);
+        font-size: 0.9rem;
+    }
+    
+    .container form .social-login {
+        flex-direction: column;
+    }
+}
+
+/* Extra Small (320px) */
+@media screen and (max-width: 320px) {
+    .container form {
+        padding: var(--space-md) var(--space-sm);
+    }
+    
+    .container form img {
+        width: 60px;
+    }
+    
+    .container form h2,
+    .container form .form-title {
+        font-size: 1.1rem;
+    }
+    
+    .container form input {
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .container form button {
+        padding: var(--space-sm) var(--space-md);
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+============================================ */
+
+.text-center { text-align: center; }
+.text-accent { color: var(--accent); }
+.text-error { color: var(--error); }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.w-full { width: 100%; }
+
+/* Loading State */
+.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.loading button {
+    position: relative;
+    color: transparent;
+}
+
+.loading button::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--bg-dark);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
