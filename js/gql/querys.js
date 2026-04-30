@@ -5,6 +5,12 @@ export const querys = {
           login
           attrs
           avatarUrl
+          events{
+            cohorts{
+              userId
+              labelName
+            }
+          }
         }
     }
     `,

@@ -6,7 +6,6 @@ let virifyTocken=localStorage.getItem("token")
 SetUrl("/")
 if  (virifyTocken){
     displayHome()
-    console.log(virifyTocken)
 }else{
     LoginForm()
 }
