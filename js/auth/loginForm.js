@@ -50,7 +50,7 @@ async function LoginHandler(e) {
             failureToast(token.error)
         } else {
             localStorage.setItem('token', token)
-            succedToast("welcome...")
+            succedToast(`Your Weclome  ${login} to you profile`)
             displayHome()
         }
     } catch (err) {
