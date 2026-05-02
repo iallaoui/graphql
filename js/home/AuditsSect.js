@@ -4,8 +4,8 @@ import { GetInfo } from "./head.js";
 
 export async function AuditsSect() {
   const container = document.querySelector(".body-container");
-  const audit_sec = document.createElement("div");
-  audit_sec.className = "audit-sec";
+  const auditsection = document.createElement("div");
+  auditsection.className = "audit-sec";
   let data = await GetInfo(querys.auditInfo);
   let err = VerifyError(data);
   if (err === false) {
@@ -15,7 +15,7 @@ export async function AuditsSect() {
   let ratio = data?.data?.user[0].auditRatio.toFixed(1);
   let history = data?.data?.user[0].audits
 
-  audit_sec.innerHTML = /*html*/ `
+  auditsection.innerHTML = /*html*/ `
         <div class="historyAudit">
             <h1>Audit Ratio: <span class="audit-ratio" id="auditRatio">${ratio}</span></h1>
             <div class="audit-list">
@@ -39,7 +39,7 @@ export async function AuditsSect() {
           </div>
         `;
 
-  container.appendChild(audit_sec);
+  container.appendChild(auditsection);
   const auditList = document.querySelector('.audit-list')
   history.map(audit => {
     const auditDiv = document.createElement('div');
