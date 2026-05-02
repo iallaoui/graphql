@@ -55,6 +55,7 @@ async function LoginHandler(e) {
         }
     } catch (err) {
         console.log(err);
+        failureToast(`there is an error try later :${err} `)
     }
 
 }

@@ -86,7 +86,6 @@ function GraphAUdits(history = []) {
     `
   const percent = perfail == 100 ? 99.99 : perfail;
   const circle = document.querySelector(".circle-graph circle")
-  console.log(circle)
   const r = Number(circle.getAttribute("r"));
   const cx = Number(circle.getAttribute("cx"));
   const cy = Number(circle.getAttribute("cy"));

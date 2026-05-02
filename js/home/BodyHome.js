@@ -46,7 +46,6 @@ async function SectionInfos() {
 
   level = level.data.transaction[0].amount;
   let datatransaction = await GetInfo(querys.Transactions);
-  console.log("the transation",datatransaction)
   const completedProjects = datatransaction.data.transaction.length || 0;
   err = VerifyError(xp);
   if (err === false) {
@@ -89,10 +88,6 @@ async function SectionInfos() {
               const members = t.object.progresses?.[0]?.group?.members || [];
               const leader =
                 t.object.progresses?.[0]?.group?.captainLogin || "";
-              console.log(xp)
-              console.log(projectName)
-              console.log(members)
-              console.log(leader)
 
               return `
               <div class="project-row">

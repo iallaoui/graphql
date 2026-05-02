@@ -38,7 +38,7 @@ async function ProfileSection() {
         return
     }
     
-    const cohort = data.data.user[0].events[0].cohorts[0].labelName;
+    const cohort = data.data.user[0].events[0].cohorts[0].labelName ||' ';
     let login = data.data.user[0].login
     let info = data.data.user[0].attrs
     let useravatar=data.data.user[0].avatarUrl
@@ -99,7 +99,6 @@ export async function GetInfo(query) {
         // let avatar=data.data.user
         // console.log(avatar)
         if (resp.ok) {
-            // console.log(data.data)
             return data
         }
     } catch (err) {
