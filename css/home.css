@@ -1,17 +1,17 @@
 /* the main cssss  */
 :root {
     /* Colors */
-    --bg-dark: #0f172a;
-    --bg-card: #1e293b;
-    --bg-card-hover: #334155;
-    --accent: #10b981;
-    --accent-light: #34d399;
-    --accent-glow: rgba(16, 185, 129, 0.3);
+    --bg-dark: #07111f;
+    --bg-card: #102235;
+    --bg-card-hover: #17344d;
+    --accent: #22d3ee;
+    --accent-light: #38bdf8;
+    --accent-glow: rgba(34, 211, 238, 0.3);
     --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --border: #334155;
-    --success: #22c55e;
+    --text-secondary: #9bb2c9;
+    --text-muted: #64819b;
+    --border: #204261;
+    --success: #14b8a6;
     --error: #ef4444;
     --warning: #f59e0b;
     

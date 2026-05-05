@@ -7,20 +7,20 @@
 /* 1. CSS VARIABLES (Same as Dashboard) */
 :root {
     /* Colors */
-    --bg-dark: #0f172a;
-    --bg-card: #1e293b;
-    --bg-card-hover: #334155;
-    --bg-input: #0f172a;
-    --accent: #10b981;
-    --accent-light: #34d399;
-    --accent-glow: rgba(16, 185, 129, 0.4);
-    --accent-glow-strong: rgba(16, 185, 129, 0.6);
+    --bg-dark: #07111f;
+    --bg-card: #102235;
+    --bg-card-hover: #17344d;
+    --bg-input: #091827;
+    --accent: #22d3ee;
+    --accent-light: #38bdf8;
+    --accent-glow: rgba(34, 211, 238, 0.4);
+    --accent-glow-strong: rgba(56, 189, 248, 0.6);
     --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --border: #334155;
-    --border-light: #475569;
-    --success: #22c55e;
+    --text-secondary: #9bb2c9;
+    --text-muted: #64819b;
+    --border: #204261;
+    --border-light: #2c5578;
+    --success: #14b8a6;
     --error: #ef4444;
     --error-glow: rgba(239, 68, 68, 0.3);
     
@@ -79,8 +79,8 @@ body {
     min-height: 100vh;
     position: relative;
     background: 
-        radial-gradient(ellipse at top left, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at bottom right, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at top left, rgba(34, 211, 238, 0.16) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
         var(--bg-dark);
 }
 
@@ -108,7 +108,7 @@ body {
 .container::after {
     width: 300px;
     height: 300px;
-    background: rgba(16, 185, 129, 0.2);
+    background: rgba(56, 189, 248, 0.18);
     bottom: -50px;
     right: -50px;
     animation-delay: 4s;
@@ -247,7 +247,7 @@ body {
 .container form input:focus {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px var(--accent-glow), var(--shadow-sm);
-    background-color: rgba(16, 185, 129, 0.05);
+    background-color: rgba(34, 211, 238, 0.06);
 }
 
 .container form input::placeholder {
@@ -359,7 +359,7 @@ body {
 .container form button.btn-secondary:hover {
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(34, 211, 238, 0.1);
 }
 
 /* 11. DIVIDER */
@@ -413,7 +413,7 @@ body {
 .container form .social-btn:hover {
     border-color: var(--accent);
     color: var(--text-primary);
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(34, 211, 238, 0.1);
 }
 
 .container form .social-btn svg {
